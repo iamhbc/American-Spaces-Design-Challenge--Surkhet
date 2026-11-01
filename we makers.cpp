@@ -16,6 +16,14 @@ if(Serial.available()){
   Serial.println(t);
 }
  
+// Clear the previous motor direction before applying a new movement command.
+if(t == 'F' || t == 'B' || t == 'L' || t == 'R'){
+  digitalWrite(13,LOW);
+  digitalWrite(12,LOW);
+  digitalWrite(11,LOW);
+  digitalWrite(10,LOW);
+}
+
 if(t == 'F'){            //move forward(all motors rotate in forward direction)
   digitalWrite(13,HIGH);
   digitalWrite(11,HIGH);
